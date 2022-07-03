@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <span class="h3">Task Details</span>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="taskDetailsForm">
+                <div class="form-group">
+                    <label for="title">Task Title</label>
+                    <input type="text" class="form-control" formControlName="title" />
+                </div>
+                <div class="form-group">
+                    <label for="description">Task Description</label>
+                    <textarea class="form-control" formControlName="description" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="status">Task Status</label>
+                    <select formControlName="status" class="form-control">
+                        <option value=null disabled selected>Select task status</option>
+                        <option *ngFor="let status of taskStatusOptions" value="{{status.value}}">{{status.key}}</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <div class="float-end">
+                <button class="btn btn-sm btn-secondary mx-2" [routerLink]="['/task/dashboard']">
+                    Cancel
+                </button>
+                <button class="btn btn-sm btn-primary" [disabled]="!taskDetailsForm.valid" (click)="saveTaskDetails()">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

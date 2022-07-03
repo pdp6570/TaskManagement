@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <span class="h3">Completed Tasks</span>
+            <span class="float-end">
+                Total: {{ tasks.length }}
+            </span>
+        </div>
+        <div class="card-body  col-md-12">
+            <div class="col-md-4 float-end">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchedText">
+                    <button class="btn btn-primary" type="button" (click)="searchTask()">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <table class="table table-bordered mt-3 col-md-12">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Title</th>
+                        <th scope="col" class="text-center col-md-6">Description</th>
+                        <th scope="col" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let task of tasks">
+                        <td>{{ task.title }}</td>
+                        <td>{{ task.description }}</td>
+                        <td class="text-center">
+                            <button class="btn btn-warning btn-sm me-3" (click)="onClickMarkAsPending(task.taskId)">Mark
+                                as
+                                Pending</button>
+                            <button [routerLink]="['/task/updateTask', task.taskId]" type="button"
+                                class="btn btn-primary btn-sm me-3">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(task.taskId)">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand mx-2" [routerLink]="['/task/dashboard']">Task Manager</a>
+    <div class="container-fluid">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            true}" [routerLink]="['/task/dashboard']">
+                <a class="nav-link">Dashboard
+                </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}" [routerLink]="['/task/pendingTasks']">
+                <a class="nav-link">Pending Tasks</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}" [routerLink]="['/task/completedTasks']">
+                <a class="nav-link">Completed Tasks</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            true}" [routerLink]="['/task/addTask']">
+            <button class="btn btn-light mx-3" >Add new Task</button>
+        </li>
+        <li>
+          <button class="btn btn-danger" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+    </div>
+</nav>
