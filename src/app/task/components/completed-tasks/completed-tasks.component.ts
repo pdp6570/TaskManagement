@@ -19,7 +19,9 @@ export class CompletedTasksComponent implements OnInit {
 
   getCompletedTasks() {
     this.tasks = this.taskService.getTasksByStatus(EnumTaskStatus.Completed);
+    if(this.tasks && this.tasks.length>0){
     this.tasks = [...this.tasks];
+    }
   }
 
   onDelete(taskId: any) {

@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header">
             <span class="h3">Completed Tasks</span>
-            <span class="float-end">
+            <span class="float-end" *ngIf="tasks">
                 Total: {{ tasks.length }}
             </span>
         </div>

@@ -20,7 +20,9 @@ export class PendingTasksComponent implements OnInit {
 
   getPendingTasks() {
     this.tasks = this.taskService.getTasksByStatus(EnumTaskStatus.Pending);
+    if(this.tasks && this.tasks.length>0){
     this.tasks = [...this.tasks];
+  }
   }
 
   onDelete(taskId: any) {
